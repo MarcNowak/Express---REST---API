@@ -1,5 +1,5 @@
 const express = require('express');
-const app = expr;
+const app = express();
 
 
 const testimonialsRoutes = require('./routes/testimonials.routes');
