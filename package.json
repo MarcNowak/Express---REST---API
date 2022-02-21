@@ -7,6 +7,7 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "nodemon": "npx nodemon server.js"
+    "nodemon": "npx nodemon server.js",
+    "build": "cd client && yarn install && yarn build"
   }
 }
