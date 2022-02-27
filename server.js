@@ -3,6 +3,10 @@ const app = express();
 const cors = require('cors');
 const path = require('path');
 
+app.use((req, res, next) => {
+  req.io = io;
+  next();
+});
 
 const testimonialsRoutes = require('./routes/testimonials.routes');
 const concertsRoutes = require('./routes/concerts.routes');
