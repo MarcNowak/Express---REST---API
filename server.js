@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const path = require('path');
+const socket = require('socket.io');
 
 app.use((req, res, next) => {
   req.io = io;
@@ -32,4 +33,13 @@ app.get('*', (req, res) => {
 
 app.use((req, res) => {
   res.status(404).json({message: '404 not found...'});
+});
+
+
+const io = socket(server);
+io.on('connection', (socket) => {
+  console.log('a user connected ' + socket.id);
+  socket.on('disconnect', () => {
+    console.log('Socket ' + socket.id + ' left');
+  });
 });
