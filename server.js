@@ -27,10 +27,11 @@ app.use((req, res) => {
   res.status(404).json({ message: '404 not found...' });
 });
 
-mongoose.connect('mongodb://localhost:27017/NewWaveDB', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect('mongodb+srv://yoell:buMqJdWA8zSdG5D@cluster0.8qbld.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 const db = mongoose.connection;
 
 db.once('open', () => {
@@ -38,6 +39,13 @@ db.once('open', () => {
 });
 db.on('error', (err) => console.log('Error' + err));
 
-app.listen(process.env.PORT || 8000, () => {
-  console.log('Server is running');
+const server = app.listen(process.env.PORT || 8000, () => {
+  console.log('Server is running on port: 8000')
 });
+
+const io = socket(server);
+io.on('connection', (socket) => {
+  console.log('New socket ', socket.id);
+});
+
+module.exports = server;
