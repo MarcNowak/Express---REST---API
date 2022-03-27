@@ -3,6 +3,7 @@ const cors = require('cors');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
+const socket = require('socket.io');
 
 const testimonialsRoutes = require('./routes/testimonials.routes');
 const concertsRoutes = require('./routes/concerts.routes');
