@@ -28,7 +28,7 @@ app.use((req, res) => {
   res.status(404).json({ message: '404 not found...' });
 });
 
-mongoose.connect('mongodb+srv://yoell:buMqJdWA8zSdG5D@cluster0.8qbld.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://yoell:buMqJdWA8zSdG5D@cluster0.8qbld.mongodb.net/NewWaveDB?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
